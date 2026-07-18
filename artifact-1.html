@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="An interactive AI speaker assistant combining conversational design, prompt engineering, and web development." />
+  <title>AI Speaker Bot | Homakesavadurgaprasad Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container navigation">
+      <a class="logo" href="index.html#profile">Homakesavadurgaprasad</a>
+      <button id="menuButton" class="menu-button" aria-label="Open navigation menu">☰</button>
+      <nav id="navigationLinks">
+        <a href="index.html#profile">Profile</a>
+        <a href="index.html#artifacts">Artifacts</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="artifact-page-hero">
+      <div class="container artifact-page-heading">
+        <a class="back-link" href="index.html#artifacts">← Back to Portfolio</a>
+        <p class="section-label">Artifact 1</p>
+        <h1>AI Speaker Bot</h1>
+        <p>An interactive AI speaker assistant combining conversational design, prompt engineering, and web development.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container artifact-detail-layout">
+        <article class="detail-section">
+          <span class="detail-number">01</span><div><h2>Overview</h2><p>The Boyz AI Speaker Bot is an interactive course project that combines conversational AI, web development, product thinking, and visual communication. The chatbot helps users discover information about speakers through a simple and engaging interface.</p></div>
+        </article>
+        <article class="detail-section">
+          <span class="detail-number">02</span><div><h2>Objective</h2><p>The objective was to design an AI-supported experience that responds to user questions, presents useful speaker information, and demonstrates how prompt engineering can support an interactive digital product.</p></div>
+        </article>
+        <article class="detail-section">
+          <span class="detail-number">03</span><div><h2>Process</h2><p>I identified the target audience and expected questions, organized speaker-related content, designed the conversation flow, built the web interface, tested responses, and refined the experience based on usability and clarity.</p></div>
+        </article>
+        <article class="detail-section">
+          <span class="detail-number">04</span><div><h2>Tools &amp; Technologies</h2><div class="technology-tags"><span>Artificial Intelligence</span><span>Prompt Engineering</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub Pages</span></div></div>
+        </article>
+        <article class="detail-section">
+          <span class="detail-number">05</span><div><h2>Skills Demonstrated</h2><p>Prompt design, conversational flow development, audience analysis, front-end development, testing, problem solving, visual communication, and project presentation.</p></div>
+        </article>
+        <article class="detail-section">
+          <span class="detail-number">06</span><div><h2>Value Proposition</h2><p>The project demonstrates how an AI chatbot can make information easier to access by replacing static navigation with a conversational interface. It also shows how technical and communication skills can be combined to create a complete user-facing product.</p></div>
+        </article>
+        <article class="detail-section reflection-box">
+          <span class="detail-number">07</span><div><h2>Reflection</h2><p>I selected this artifact because it represents the practical application of concepts learned in the course. Creating the chatbot helped me understand that an effective AI solution requires more than generating responses. It also requires clear content, thoughtful prompts, a logical conversation flow, testing, and an interface that users can understand. The project improved my confidence in combining AI concepts with web technologies and showed me how user feedback can guide revisions.</p></div>
+        </article>
+        <article class="detail-section">
+          <span class="detail-number">08</span><div><h2>Evidence</h2><p>The live chatbot and source-code repository provide evidence of the completed application and its implementation.</p><div class="artifact-page-actions"><a class="primary-button" href="https://homakesava56.github.io/Tedtalker/" target="_blank" rel="noreferrer">Open Live Chatbot</a><a class="secondary-button" href="https://github.com/Homakesava56/AiSpeakerBot" target="_blank" rel="noreferrer">View GitHub Repository</a></div></div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container footer-content">
+      <p>© <span id="currentYear"></span> Homakesavadurgaprasad</p>
+      <a href="index.html#artifacts">Back to Artifacts</a>
+    </div>
+  </footer>
+  <div id="imageModal" class="image-modal" aria-hidden="true">
+    <div class="image-modal-background" data-close-modal></div>
+    <div class="image-modal-content">
+      <button id="closeModalButton" class="close-modal-button" aria-label="Close artifact preview">×</button>
+      <h3 id="modalTitle"></h3>
+      <img id="modalImage" src="" alt="" />
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>
