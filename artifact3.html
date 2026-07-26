@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Artifact 3 | Machine Learning Training Methods</title>
+
+  <meta name="description"
+        content="Portfolio artifact demonstrating machine learning training methods through an interactive AI-assisted learning activity.">
+
+  <style>
+    :root {
+      --background: #07111f;
+      --surface: #0e1b2d;
+      --surface-light: #15253a;
+      --text: #edf4ff;
+      --muted: #b9c7d9;
+      --accent: #63d7c5;
+      --accent-light: #a1eee2;
+      --border: rgba(255, 255, 255, 0.12);
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top right, rgba(99, 215, 197, 0.13), transparent 32rem),
+        var(--background);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(7, 17, 31, 0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: var(--accent-light);
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 90px 0 55px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 860px;
+      margin: 0;
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 1.05;
+    }
+
+    .hero-description {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 1.15rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .tag {
+      padding: 8px 13px;
+      border: 1px solid rgba(99, 215, 197, 0.4);
+      border-radius: 999px;
+      background: rgba(99, 215, 197, 0.08);
+      color: var(--accent-light);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    main {
+      padding-bottom: 90px;
+    }
+
+    .section {
+      margin-top: 30px;
+      padding: 34px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: linear-gradient(145deg, var(--surface), var(--surface-light));
+      box-shadow: var(--shadow);
+    }
+
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.55rem, 3vw, 2.2rem);
+    }
+
+    .section h3 {
+      margin-top: 0;
+      color: var(--accent-light);
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .numbered-list {
+      padding-left: 24px;
+    }
+
+    .numbered-list li,
+    .bullet-list li {
+      margin-bottom: 10px;
+      color: var(--muted);
+    }
+
+    .bullet-list {
+      padding-left: 22px;
+    }
+
+    .highlight {
+      border-left: 4px solid var(--accent);
+    }
+
+    .evidence-box {
+      margin-top: 20px;
+      padding: 26px;
+      border: 2px dashed rgba(99, 215, 197, 0.45);
+      border-radius: 18px;
+      text-align: center;
+      background: rgba(99, 215, 197, 0.04);
+    }
+
+    .evidence-box strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent-light);
+      font-size: 1.05rem;
+    }
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 26px 22px;
+      }
+
+      .nav {
+        min-height: 64px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">Homakesavadurgaprasad</a>
+      <a class="back-link" href="index.html#artifacts">← Back to Portfolio</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Portfolio Artifact 03</p>
+      <h1>Machine Learning Training Methods Using an AI Coach</h1>
+
+      <p class="hero-description">
+        An interactive AI-assisted learning activity exploring supervised learning,
+        unsupervised learning, reinforcement learning, algorithms, training data,
+        and the iterative model-training process.
+      </p>
+
+      <div class="tag-list" aria-label="Artifact skills">
+        <span class="tag">Machine Learning</span>
+        <span class="tag">AI-Assisted Learning</span>
+        <span class="tag">Critical Thinking</span>
+        <span class="tag">Technical Communication</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="section">
+      <h2>Objective</h2>
+      <p class="muted">
+        The objective of this course activity was to strengthen my understanding
+        of fundamental machine learning training methods through a guided
+        conversation with a pre-trained AI chatbot. The activity helped me
+        connect theoretical concepts to practical examples while developing
+        critical-thinking and collaborative problem-solving skills.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Artifact Overview</h2>
+      <p class="muted">
+        In this activity, the Machine Learning Training Methods Coach served as
+        both a guide and a learning partner. I responded to questions, reviewed
+        feedback, asked follow-up questions, and refined my understanding of how
+        machine learning systems learn from examples and improve over time.
+      </p>
+
+      <p class="muted">
+        The interactive format made the learning experience more active than a
+        traditional reading assignment because I had to explain concepts in my
+        own words and use the chatbot's guidance to correct or expand my answers.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Process</h2>
+      <ol class="numbered-list">
+        <li>Reviewed the assigned introductory material on artificial intelligence and machine learning.</li>
+        <li>Accessed the SchoolAI Machine Learning Training Methods Coach.</li>
+        <li>Answered the required questions using my own understanding of the concepts.</li>
+        <li>Discussed supervised, unsupervised, and reinforcement learning with the AI coach.</li>
+        <li>Explored the importance of algorithms, examples, and repeated training iterations.</li>
+        <li>Asked additional questions to connect the concepts to real-world machine learning scenarios.</li>
+        <li>Used the chatbot's feedback to clarify and strengthen my explanations.</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>Tools and Technologies</h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3>SchoolAI</h3>
+          <p>
+            A web-based learning environment used to access the customized
+            Machine Learning Training Methods Coach.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>AI Chatbot</h3>
+          <p>
+            A pre-trained conversational assistant that provided prompts,
+            explanations, feedback, and follow-up guidance.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Machine Learning Concepts</h3>
+          <p>
+            Foundational concepts involving learning methods, algorithms,
+            training examples, iteration, model evaluation, and improvement.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Key Concepts Demonstrated</h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Supervised Learning</h3>
+          <p>
+            A model learns from labeled examples containing both inputs and
+            expected outputs. It uses these examples to identify relationships
+            and make predictions for new data.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Unsupervised Learning</h3>
+          <p>
+            A model analyzes unlabeled data to discover natural groups,
+            relationships, similarities, or hidden patterns without being given
+            a predefined correct answer.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Reinforcement Learning</h3>
+          <p>
+            An agent learns through interaction, trial and error, rewards, and
+            penalties. Over time, it identifies actions that produce better
+            long-term outcomes.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Machine Learning Training Lifecycle</h2>
+      <ol class="numbered-list">
+        <li>Define the problem and expected outcome.</li>
+        <li>Collect relevant and representative data.</li>
+        <li>Clean and prepare the data for analysis.</li>
+        <li>Select an appropriate learning method and algorithm.</li>
+        <li>Train the model using the prepared examples.</li>
+        <li>Evaluate the model with validation or testing data.</li>
+        <li>Adjust the model and repeat the process to improve performance.</li>
+      </ol>
+    </section>
+
+    <section class="section highlight">
+      <h2>Role of Data and Repetition</h2>
+      <p class="muted">
+        Training examples provide the patterns from which a model learns.
+        Accurate, diverse, and representative data improves the model's ability
+        to perform well on new cases. Poor-quality or biased data may cause
+        inaccurate or unfair results.
+      </p>
+
+      <p class="muted">
+        Repetition allows a model to review the training data multiple times,
+        compare its predictions with the desired outcome, and adjust its
+        internal parameters. Each training cycle can reduce error and improve
+        performance when the process is carefully monitored.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Skills Demonstrated</h2>
+      <ul class="bullet-list">
+        <li>Understanding foundational machine learning methods</li>
+        <li>Distinguishing supervised, unsupervised, and reinforcement learning</li>
+        <li>Connecting machine learning theory to practical examples</li>
+        <li>Using AI feedback to improve understanding</li>
+        <li>Asking relevant follow-up questions</li>
+        <li>Explaining technical concepts clearly</li>
+        <li>Engaging in collaborative problem solving with an AI tool</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Learning Outcomes</h2>
+      <p class="muted">After completing this activity, I was able to:</p>
+
+      <ul class="bullet-list">
+        <li>Explain how supervised models learn from labeled training data.</li>
+        <li>Describe how unsupervised models identify patterns without labels.</li>
+        <li>Explain how reinforcement-learning agents learn through rewards and penalties.</li>
+        <li>Describe why algorithms are central to model training.</li>
+        <li>Outline the basic steps involved in training a machine learning model.</li>
+        <li>Explain how examples and repeated iterations influence model performance.</li>
+      </ul>
+    </section>
+
+    <section class="section highlight">
+      <h2>Value Proposition</h2>
+      <p class="muted">
+        This artifact demonstrates my ability to build foundational machine
+        learning knowledge through AI-assisted collaboration. It shows that I
+        can actively engage with an AI tool, evaluate feedback, ask meaningful
+        questions, and communicate technical ideas in a clear and organized
+        manner.
+      </p>
+
+      <p class="muted">
+        These abilities are valuable in data engineering, analytics, artificial
+        intelligence, and machine learning roles because professionals must be
+        able to learn emerging technologies continuously and translate complex
+        concepts into practical understanding.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Evidence of Coursework</h2>
+      <p class="muted">
+        This artifact is directly based on the Machine Learning Training Methods
+        Coach activity completed as part of my AI and machine learning course.
+        The interaction included the required questions, chatbot guidance,
+        follow-up discussion, and feedback.
+      </p>
+
+      <div class="evidence-box">
+        <strong>Add Course Evidence Here</strong>
+        Insert a screenshot of the SchoolAI conversation or activity-completion
+        screen before submitting the portfolio.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Homakesavadurgaprasad · Artificial Intelligence and Machine Learning Portfolio
+    </div>
+  </footer>
+</body>
+</html>
